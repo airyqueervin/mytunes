@@ -2,9 +2,10 @@
 var Songs = Backbone.Collection.extend({
 
   model: SongModel,
-  url: 'http://parse.sfs.hackreactor.com/mytunes/classes/songs',
+  url: 'http://parse.sfm8.hackreactor.com/mytunes/classes/songs',
 
   parse: function(data) {
+    // console.log('DATA', data);
     return data.results;
   }
 
