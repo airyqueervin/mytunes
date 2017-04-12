@@ -31,12 +31,14 @@ describe('Songs', function() {
 
     it('should GET song data from Parse when initialized', function() {
       songs = new Songs();
+      songs.fetch();
       expect(requests[0].method).to.equal('GET');
       expect(requests[0].url).to.include('http://parse.sfm8.hackreactor.com/mytunes/classes/songs');
     });
 
     it('should populate itself with the data returned from the Parse server', function() {
       songs = new Songs();
+      songs.fetch();
       requests[0].respond(200, { 'Content-Type': 'application/json' }, fakeResponse);
       expect(songs).to.have.length(2);
       expect(songs.at(0).get('title')).to.equal('Never Gonna Mock You Up');
